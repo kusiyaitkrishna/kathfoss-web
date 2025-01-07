@@ -6,7 +6,7 @@ Thank you for your interest in contributing to the KathFOSS-web project! By part
  1. Fork the Repository:
     - Start by forking this repository to your GitHub account.
       ```bash
-        git clone https://github.com/kathfoss-community/kathfoss-web.git
+        git clone https://github.com/KathFOSS-Club/kathfoss-web.git
         cd kathfoss-web
       
 2. Set Up the Development Environment:
