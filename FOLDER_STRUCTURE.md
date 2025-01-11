@@ -17,7 +17,7 @@ This folder contains all the routing logic for the application. Routing refers t
 
 The `common` folder contains all the reusable components, types, and utility functions that can be used throughout the application.
 
-`common/components` (UI Components):
+`common/components` (Common UI Components):
 
 This folder contains the components used to build the user interface. These are reusable building blocks that help construct pages and layouts.
 
