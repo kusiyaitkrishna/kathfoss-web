@@ -15,15 +15,6 @@ Welcome to the **KathFOSS Web** project! This repository contains the source cod
 
 Follow these steps to set up the project locally:
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (version 18+)
-- [Git](https://git-scm.com/)
-- A package manager pnpm
-
-   - Install pnpm
-    ```bash
-      npm install -g pnpm
-    ```
 ### Installation
 1. Clone the repository:
    ```bash
@@ -32,7 +23,7 @@ Follow these steps to set up the project locally:
    
 2. Install dependencies:
    ```bash
-   pnpm i
+   npm i
    ```
    
 3. Run the development server:
