@@ -10,13 +10,9 @@ Thank you for your interest in contributing to the KathFOSS-web project! By part
         cd kathfoss-web
       
 2. Set Up the Development Environment:
-    - Install pnpm
-    ```bash
-      npm install -g pnpm
-    ```
     - Install Dependencies:
       ```bash
-      pnpm i
+      npm i
       
 3. Create a branch
    - Use descriptive branch names that reflect the feature or fix you are working on. For example:
