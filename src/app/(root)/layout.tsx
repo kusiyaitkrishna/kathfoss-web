@@ -1,3 +1,4 @@
+import BackgroundAnimation from "@/common/components/ParticleAnimation/BackgroundAnimation";
 import { Box } from "@mui/material";
 
 export default function RootLayout({
@@ -5,5 +6,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <Box>{children}</Box>;
+  return (
+    <>
+      {/* Animated Background */}
+      <BackgroundAnimation />
+      <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
+    </>
+  );
 }

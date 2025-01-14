@@ -5,17 +5,18 @@ const MainTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#FFE401",
+      main: "#0E1322", // Correct hex color
     },
     background: {
-      default: "#121212",
-      paper: "#1E1E1E",
+      default: "#0E1322",
+      paper: "#181630",
     },
     text: {
-      primary: "#FFF",
-      secondary: "#A0A0A0",
+      primary: "#FFFFFF", // Correct hex color
+      secondary: "#898686",
     },
   },
+
   typography: {
     fontFamily: "DM Sans, Arial, sans-serif",
     h1: {
@@ -93,4 +94,8 @@ const MainTheme = createTheme({
   },
 });
 
-export const themeConfigMui = responsiveFontSizes(MainTheme);
+export const themeConfigMui = responsiveFontSizes(MainTheme, {
+  breakpoints: ["xs", "sm", "md", "lg", "xl"],
+  disableAlign: true,
+  factor: 5,
+});
