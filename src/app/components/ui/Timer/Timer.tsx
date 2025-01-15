@@ -72,17 +72,11 @@ export default function Timer() {
         }}
       >
         <FormatTime value={time.days} unit="Day" />
-        <Typography variant="h2" sx={{ fontSize: "6vw" }}>
-          :
-        </Typography>
+        <Typography variant="h2">:</Typography>
         <FormatTime value={time.hours} unit="Hour" />
-        <Typography variant="h2" sx={{ fontSize: "6vw" }}>
-          :
-        </Typography>
+        <Typography variant="h2">:</Typography>
         <FormatTime value={time.minutes} unit="Minute" />
-        <Typography variant="h2" sx={{ fontSize: "6vw" }}>
-          :
-        </Typography>
+        <Typography variant="h2">:</Typography>
         <FormatTime value={time.seconds} unit="Second" />
       </Box>
     </Box>
