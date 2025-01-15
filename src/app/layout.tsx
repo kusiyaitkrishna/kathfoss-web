@@ -2,6 +2,8 @@ import Providers from "@/config/Providers";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import BackgroundAnimation from "@/app/components/ParticleAnimation/BackgroundAnimation";
+import { Box } from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <BackgroundAnimation />
+          <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
+        </Providers>
       </body>
     </html>
   );
