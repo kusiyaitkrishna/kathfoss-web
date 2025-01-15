@@ -2,7 +2,7 @@
 
 import { GlobalStyles, ThemeProvider } from "@mui/material";
 import { PropsWithChildren } from "react";
-import { themeConfigMui } from "./themeConfigMui";
+import { themeConfigMui } from "./ThemeConfigMui";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 
