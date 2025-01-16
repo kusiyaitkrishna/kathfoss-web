@@ -1,31 +1,59 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { AppBar, Toolbar, Box, Button } from "@mui/material";
 
 export default function Header() {
-  return (
-    <div className="bg-gray-800 text-sm p-4 text-white relative w-1/2 mx-auto mt-10 rounded flex items-center justify-between">
-      {/* Logo */}
-      <img
-        src="/assets/icon.svg"
-        alt="Logo"
-        className="h-14 w-14 object-contain rounded-full"
-      />
+  const navItems = ["HOME", "EVENTS", "TEAM", "CONTACT US"];
 
-      {/* Navigation buttons */}
-      <div className="flex space-x-6">
-        <Link href="#home">
-          <button className="hover:text-gray-300">HOME</button>
-        </Link>
-        <Link href="#events">
-          <button className="hover:text-gray-300">EVENT</button>
-        </Link>
-        <Link href="#team">
-          <button className="hover:text-gray-300">TEAM</button>
-        </Link>
-        <Link href="#contact-us">
-          <button className="hover:text-gray-300">CONTACT US</button>
-        </Link>
-      </div>
-    </div>
+  return (
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "#0A001F",
+        height: 80,
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "1000px",
+        width: "100%",
+        borderRadius: 2,
+        marginTop: "20px",
+      }}
+    >
+      <Toolbar
+        sx={{
+          justifyContent: "space-between",
+          minHeight: 80,
+          paddingX: 3,
+        }}
+      >
+        {/* Logo Section */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Image src="/assets/icon.svg" alt="Logo" width={110} height={110} />
+        </Box>
+
+        {/* Navigation Links */}
+        <Box sx={{ display: "flex", gap: 4 }}>
+          {navItems.map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              passHref
+            >
+              <Button
+                sx={{
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  "&:hover": { color: "#BDBDBD" },
+                }}
+              >
+                {item}
+              </Button>
+            </Link>
+          ))}
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }
