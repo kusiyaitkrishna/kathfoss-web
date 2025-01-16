@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import FormatTime from "./FormatTime";
@@ -51,11 +52,10 @@ export default function Timer() {
   return (
     <Box
       sx={{
-        width: "51.823vw",
-        height: "24.3vh",
+        padding: "10px",
+        width: "550px",
         backgroundColor: "#1F2531",
         marginTop: "96px",
-        marginLeft: "23vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
