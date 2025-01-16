@@ -44,6 +44,17 @@ const MainTheme = createTheme({
     },
   },
   components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#120F26",
+          color: "#000",
+          padding: "16px",
+          borderRadius: "8px",
+          margin: "0",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
