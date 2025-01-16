@@ -1,5 +1,6 @@
-import React from "react";
+
+import Timer from "./ui/Timer/Timer";
 
 export default function HeroSection() {
-  return <div></div>;
+  return <Timer />;
 }
