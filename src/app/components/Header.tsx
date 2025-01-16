@@ -4,7 +4,12 @@ import Image from "next/image";
 import { AppBar, Toolbar, Box, Button } from "@mui/material";
 
 export default function Header() {
-  const navItems = ["HOME", "EVENTS", "TEAM", "CONTACT US"];
+  const navItems = [
+    { label: "HOME", href: "#home" },
+    { label: "EVENTS", href: "#events" },
+    { label: "TEAM", href: "#team" },
+    { label: "CONTACT US", href: "#contact-us" },
+  ];
 
   return (
     <AppBar
@@ -35,11 +40,7 @@ export default function Header() {
         {/* Navigation Links */}
         <Box sx={{ display: "flex", gap: 4 }}>
           {navItems.map((item) => (
-            <Link
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-              passHref
-            >
+            <Link key={item.label} href={item.href} passHref>
               <Button
                 sx={{
                   color: "white",
@@ -48,7 +49,7 @@ export default function Header() {
                   "&:hover": { color: "#BDBDBD" },
                 }}
               >
-                {item}
+                {item.label}
               </Button>
             </Link>
           ))}
