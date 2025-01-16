@@ -1,4 +1,3 @@
-"use client";
 
 import Timer from "./ui/Timer/Timer";
 
