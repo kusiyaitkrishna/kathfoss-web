@@ -1,12 +1,13 @@
 "use client";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useId, useEffect } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 
 interface SlideData {
   title: string;
   src: string;
+  description: string;
 }
 
 interface SlideProps {
@@ -63,7 +64,8 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     event.currentTarget.style.opacity = "1";
   };
 
-  const { src, title } = slide;
+  const { src, title, description } = slide;
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <Box
       sx={{
@@ -72,10 +74,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
       }}
     >
       <Box
-        ref={slideRef}
-        onClick={() => handleSlideClick(index)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -83,9 +81,26 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           justifyContent: "center",
           position: "relative",
           opacity: 1,
-          transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          width: "70vmin",
-          height: "70vmin",
+          transition:
+            "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease-in-out",
+          width: { sm: "70vmin", xs: "70vmin" },
+          height: {
+            sm: isExpanded ? "85vmin" : "65vmin",
+            xl: isExpanded ? "70vmin" : "59vmin",
+          },
+
+          "@media (max-width: 375px)": {
+            height: isExpanded ? "120vmin" : "81vmin",
+          },
+          " @media (min-width: 376px) and (max-width: 390px) ": {
+            height: isExpanded ? "110vmin" : "80vmin",
+          },
+          "@media (min-width: 391px) and (max-width: 414px)": {
+            height: isExpanded ? "107vmin" : "80vmin",
+          },
+          "@media (min-width: 415px) and @media (max-width: 430px)": {
+            height: isExpanded ? "105vmin" : "78vmin",
+          },
           marginX: "4vmin",
           zIndex: 10,
           transform:
@@ -93,7 +108,12 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
               ? "scale(0.98) rotateX(8deg)"
               : "scale(1) rotateX(0deg)",
           transformOrigin: "bottom",
+          overflow: "hidden", // Ensure content doesn't overflow
         }}
+        ref={slideRef}
+        onClick={() => handleSlideClick(index)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <Box
           sx={{
@@ -103,35 +123,118 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             width: "100%",
             height: "100%",
             backgroundColor: "#1D1F2F",
-            borderRadius: "50px",
+            borderRadius: "30px",
             overflow: "hidden",
             transition: "all 0.15s ease-out",
             transform:
               current === index
                 ? "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)"
                 : "none",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <Image
-            alt={title}
-            src={src}
-            onLoad={imageLoaded}
-            loading="lazy"
-            decoding="sync"
-            style={{
-              position: "absolute",
-              inset: 0,
+          {/* Image Section */}
+          <Box
+            sx={{
+              position: "relative",
               width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              opacity: current === index ? 1 : 0.5,
-              transition: "opacity 0.7s ease-in-out",
-              transform: "scale(1,1)",
-              cursor: "pointer",
+              height: { sm: "50vmin", xs: "60vmin" },
+              overflow: "hidden",
+              padding: "16px",
+              boxSizing: "border-box",
             }}
-            width={500}
-            height={500}
-          />
+          >
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                overflow: "hidden",
+                borderRadius: "25px 25px 0 0",
+              }}
+            >
+              <Image
+                alt={title}
+                src={src}
+                onLoad={imageLoaded}
+                loading="lazy"
+                decoding="sync"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  objectFit: "cover",
+                  opacity: current === index ? 1 : 0.5,
+                  transition: "opacity 0.7s ease-in-out",
+                  cursor: "pointer",
+                }}
+                fill
+              />
+            </Box>
+          </Box>
+
+          {/* Description Section */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              color: "white",
+              fontSize: "16px",
+              overflow: "hidden",
+              height: isExpanded ? "auto" : "10px",
+              transition: "height 0.3s ease-in-out, padding 0.3s ease-in-out",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: "600",
+                fontSize: { sm: "24px", xs: "16px" },
+                marginBottom: "6px",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              {title}
+            </Typography>
+
+            <Box sx={{ padding: "0 6px" }}>
+              <Typography
+                sx={{
+                  fontSize: { sm: "15px", xs: "12px" },
+                  color: "#B0B0B0",
+                  lineHeight: "1.6",
+                  maxWidth: "600px",
+                  marginBottom: "16px",
+                  textAlign: "justify",
+                  width: "100%",
+                  marginX: "auto",
+                  wordWrap: "break-word",
+                  hyphens: "auto",
+                }}
+              >
+                {description}
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* Show More Button */}
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            sx={{
+              color: "white",
+              margin: "8px",
+              fontSize: { sm: "14px", xs: "12px" },
+              textTransform: "none",
+            }}
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </Button>
         </Box>
       </Box>
     </Box>
@@ -190,7 +293,6 @@ export default function Carousel({ slides }: CarouselProps) {
     }
   };
   const handlePointerDown = (event: React.PointerEvent) => {
-    console.log("point down");
     startXRef.current = event.clientX;
     console.log(startXRef);
     offsetXRef.current = 0;
