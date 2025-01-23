@@ -39,7 +39,7 @@ export default async function Home() {
       <UpcomingEvents />
 
       {/* Team */}
-      <Team />
+      <Team  />
 
       {/* Highlighted Projects */}
       <HighlightedProjects />
