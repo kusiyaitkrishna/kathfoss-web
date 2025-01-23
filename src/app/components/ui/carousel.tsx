@@ -69,7 +69,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
   return (
     <Box
       sx={{
-        perspective: "1200px",
+        perspective: "2000px",
         transformStyle: "preserve-3d",
       }}
     >
@@ -83,23 +83,19 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           opacity: 1,
           transition:
             "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s ease-in-out",
-          width: { sm: "70vmin", xs: "70vmin" },
+          width: {
+            xs: "20rem",
+            sm: "25rem",
+            md: "30rem",
+            lg: "35rem",
+            xl: "40rem",
+          },
           height: {
-            sm: isExpanded ? "85vmin" : "65vmin",
-            xl: isExpanded ? "70vmin" : "59vmin",
-          },
-
-          "@media (max-width: 375px)": {
-            height: isExpanded ? "120vmin" : "81vmin",
-          },
-          " @media (min-width: 376px) and (max-width: 390px) ": {
-            height: isExpanded ? "110vmin" : "80vmin",
-          },
-          "@media (min-width: 391px) and (max-width: 414px)": {
-            height: isExpanded ? "107vmin" : "80vmin",
-          },
-          "@media (min-width: 415px) and @media (max-width: 430px)": {
-            height: isExpanded ? "105vmin" : "78vmin",
+            xs: isExpanded ? "34rem" : "26.5rem",
+            sm: isExpanded ? "37rem" : "28rem",
+            md: isExpanded ? "40rem" : "32rem",
+            lg: isExpanded ? "38rem" : "32rem",
+            xl: isExpanded ? "46rem" : "39.5rem",
           },
           marginX: "4vmin",
           zIndex: 10,
@@ -139,7 +135,14 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             sx={{
               position: "relative",
               width: "100%",
-              height: { sm: "50vmin", xs: "60vmin" },
+              height: {
+                xs: "22rem",
+                sm: "22rem",
+                md: "26rem",
+                lg: "26rem",
+                xl: "33.5rem",
+              },
+
               overflow: "hidden",
               padding: "16px",
               boxSizing: "border-box",
@@ -193,11 +196,13 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
             <Typography
               variant="h4"
               sx={{
-                fontWeight: "600",
-                fontSize: { sm: "24px", xs: "16px" },
+                fontWeight: "500",
+                fontSize: { sm: "23px", xs: "16px" },
                 marginBottom: "6px",
                 textAlign: "center",
                 width: "100%",
+                color: "grey.300",
+
               }}
             >
               {title}
@@ -227,7 +232,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           <Button
             onClick={() => setIsExpanded(!isExpanded)}
             sx={{
-              color: "white",
+              color: `${isExpanded ? "gray" : "grey.400"}`,
               margin: "8px",
               fontSize: { sm: "14px", xs: "12px" },
               textTransform: "none",
@@ -348,8 +353,20 @@ export default function Carousel({ slides }: CarouselProps) {
     <Box
       sx={{
         position: "relative",
-        width: "80vmin",
-        height: "70vmin",
+        width: {
+          xs: "22rem",
+          sm: "30rem",
+          md: "35rem",
+          lg: "39rem",
+          xl: "45rem",
+        },
+        height: {
+          xs: "30rem",
+          sm: "30rem",
+          md: "36rem",
+          lg: "36rem",
+          xl: "45rem",
+        },
         marginX: "auto",
       }}
       aria-labelledby={`carousel-heading-${id}`}
@@ -384,7 +401,7 @@ export default function Carousel({ slides }: CarouselProps) {
           top: "50%",
           left: 0,
           right: 0,
-          display: "flex",
+          display: { md: "flex", xs: "none" },
           justifyContent: "space-between",
           alignItems: "center",
           transform: "translateY(-50%)",

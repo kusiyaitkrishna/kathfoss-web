@@ -29,6 +29,20 @@ export const EventsHighlight = () => {
           >
             HIGHLIGHTS
           </Typography>
+
+          <Typography
+            variant="h6"
+            component="h6"
+            align="center"
+            gutterBottom
+            sx={{
+              marginBottom: 3,
+              color: "#8892b0",
+            }}
+          >
+            Recap the best and most memorable moments!
+          </Typography>
+
         </Typography>
       </Box>
 
