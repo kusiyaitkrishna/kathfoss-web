@@ -5,13 +5,12 @@ import {
   EventsHighlight,
   Footer,
   Header,
-  Navbar,
   HeroSection,
   HighlightedProjects,
   Team,
   UpcomingEvents,
 } from "./components";
-
+import Navbar from "./components/Navbar";
 import React from "react";
 import ContactUs from "./components/ContactUs";
 
