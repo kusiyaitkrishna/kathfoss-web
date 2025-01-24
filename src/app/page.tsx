@@ -5,6 +5,7 @@ import {
   EventsHighlight,
   Footer,
   Header,
+  Navbar,
   HeroSection,
   HighlightedProjects,
   Team,
@@ -26,8 +27,7 @@ export default async function Home() {
         scrollBehavior: "smooth",
       }}
     >
-      {/* Header */}
-      <Header />
+      <Navbar/>
 
       {/* Hero Section */}
       <HeroSection />
