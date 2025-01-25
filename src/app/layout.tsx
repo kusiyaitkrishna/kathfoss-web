@@ -48,6 +48,7 @@ export default async function RootLayout({
     <html lang="en" className="dark">
       <body className={`${poppins.variable}antialiased`}>
         <Providers>
+          <h1>Just for testing</h1>
           <StarField />
           <Box sx={{ position: "relative", zIndex: 1 }}>
             <Navbar />
